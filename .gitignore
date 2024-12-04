@@ -483,6 +483,7 @@ $RECYCLE.BIN/
 # Vim temporary swap files
 *.swp
 
+<<<<<<< HEAD
 .DS_STORE
 
 /dist/
@@ -541,3 +542,7 @@ baseline.json
 
 # Ignore cache created with the Angular CLI.
 .angular/
+=======
+#Connection String
+API/appsettings.json
+appsettings.Development.json

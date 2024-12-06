@@ -11,7 +11,7 @@ import { RouterOutlet } from '@angular/router';
 })
 export class AppComponent implements OnInit{
   http = inject(HttpClient);
-  title = 'DatingApp';
+  title = 'AngularApp';
   users: any;
 
   ngOnInit(): void {

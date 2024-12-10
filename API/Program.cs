@@ -1,4 +1,6 @@
 using API.Data;
+using API.Interfaces;
+using API.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -15,6 +17,9 @@ builder.Services.AddDbContext<DataContext>(opt =>
 
 //CORS Policy
 builder.Services.AddCors();
+
+//Scoped is chosen because it is possible to use it once per client request.
+builder.Services.AddScoped<ITokenService, TokenServices>();
 
 var app = builder.Build();
 

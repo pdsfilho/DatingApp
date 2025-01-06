@@ -11,7 +11,7 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
   styleUrl: './nav.component.css'
 })
 export class NavComponent {
-  private accountService = inject(AccountService);
+  accountService = inject(AccountService);
   loggedIn = false
   model: any={};
 

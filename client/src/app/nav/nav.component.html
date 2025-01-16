@@ -30,7 +30,7 @@
 
         }
         
-        @if (!loggedIn) {
+        @if (!accountService.currentUser()) {
             <form #loginForm="ngForm" (ngSubmit)="login()" class="d-flex" role="search" autocomplete="off">
                 <input 
                     name="username" 

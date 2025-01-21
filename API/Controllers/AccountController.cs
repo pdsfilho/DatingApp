@@ -16,11 +16,12 @@ public class AccountController(DataContext context, ITokenService tokenService) 
     public async Task<ActionResult<UserDTO>> Register(RegisterDTO registerDto)
     {
         if (await UserExists(registerDto.UserName)) return BadRequest("Username is taken");
+        return Ok();
 
         //Using the Hash to generate a new password. 
         //The "using" statement already disposes of the instance after is used.
         using var hmac = new HMACSHA512();
-
+/*
         var user = new AppUser
         {
             UserName = registerDto.UserName.ToLower(),
@@ -35,6 +36,7 @@ public class AccountController(DataContext context, ITokenService tokenService) 
             Username = user.UserName,
             Token = tokenService.CreateToken(user)
         };
+        */
     }
 
     [HttpPost("login")] // account/login

@@ -28,6 +28,10 @@ public static class ApplicationServiceExtensions
         //UserRepository
         services.AddScoped<IUserRepository, UserRepository>();
 
+        //Automapper
+        //Identifying where the class AutoMapperProfiles is located
+        services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
         return services;
     }
 }

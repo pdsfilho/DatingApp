@@ -18,12 +18,10 @@ public class UsersController(IUserRepository userRepository, IMapper mapper) : B
     public async Task<ActionResult<IEnumerable<MemberDTO>>> GetUsers()
     {
         //var users = context.Users.ToList();
-        var users = await userRepository.GetUsersAsync();
-        
-        var usersToReturn = mapper.Map<IEnumerable<MemberDTO>>(users);
+        var users = await userRepository.GetMembersAsync();
 
         //Collections tend to not accept a return users, for some reason. So Ok was used.
-        return Ok(usersToReturn);
+        return Ok(users);
     }
 
     
@@ -32,11 +30,11 @@ public class UsersController(IUserRepository userRepository, IMapper mapper) : B
     {
         //var user = context.Users.Find(id);
         
-        var user = await userRepository.GetUserByUserNameAsync(username);
+        var user = await userRepository.GetMemberAsync(username);
 
         if (user == null) return NotFound();
         
-        return mapper.Map<MemberDTO>(user);
+        return user;
     }
 
 }

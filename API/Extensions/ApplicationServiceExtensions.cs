@@ -25,6 +25,13 @@ public static class ApplicationServiceExtensions
         //Scoped is chosen because it is possible to use it once per client request.
         services.AddScoped<ITokenService, TokenServices>();
 
+        //UserRepository
+        services.AddScoped<IUserRepository, UserRepository>();
+
+        //Automapper
+        //Identifying where the class AutoMapperProfiles is located
+        services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
         return services;
     }
 }
